@@ -1,0 +1,51 @@
+@import 'normalize';
+// @import 'reset';
+@import 'variables';
+
+
+html,
+button,
+input,
+select {
+  color: $black;
+}
+
+a,
+a:visited {
+  color: $linkColor;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lighten($linkColor,10%);
+}
+
+body {
+  color: $black;
+  font-size: 1.4em;
+  font-family: Roboto;
+  line-height: 1.3;
+}
+
+header {
+  background: $grey;
+  color:$black;
+  padding: 1em;
+
+  nav {
+    float:right;
+    user-select:none;
+  }
+  .nav-item {
+    float:left;
+    margin-left:.5em;
+
+    a.active {
+      text-decoration:underline;
+    }
+  }
+}
+
+.content {
+  padding: 1em;
+}
