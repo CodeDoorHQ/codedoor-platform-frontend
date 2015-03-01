@@ -3,3 +3,4 @@ dist
 app/bower_components
 app/bundles
 *.log
+.DS_Store
