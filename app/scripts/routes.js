@@ -5,6 +5,7 @@ import App from './pages/app.jsx';
 import Dashboard from './pages/dashboard.jsx';
 import Courses from './pages/courses.jsx';
 import About from './pages/about.jsx';
+import Tutors from './pages/tutors.jsx';
 import NotFound from './pages/notFound.jsx';
 
 var routes = (
@@ -12,6 +13,7 @@ var routes = (
     <Route name="about" handler={ About } />
     <Route name="courses" handler={ Courses } />
     <Route name="dashboard" handler={ Dashboard } />
+    <Route name="tutors" handler={ Tutors } />
     <DefaultRoute handler={ Dashboard } />
     <NotFoundRoute handler={ NotFound } />
   </Route>

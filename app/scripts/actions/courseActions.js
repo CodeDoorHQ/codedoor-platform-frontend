@@ -6,16 +6,13 @@ var CourseActions = Reflux.createActions([
   'loadCoursesError'
 ]);
 
-CourseActions.loadCourses.preEmit = function(data){
-  // make your api call/ async stuff here
-  // we use setTimeout for faking async behaviour here
-  setTimeout(function(){
-    var courses = ['Codecademy', 'Khan Academy', 'Codeschool'];
+CourseActions.loadCourses.preEmit = function(data) {
+  $.get('https://codedoor-backend.herokuapp.com/courses').then(function(courses) {
     CourseActions.loadCoursesSuccess(courses);
-
-    // on error
-    // CourseActions.loadCoursesError('an error occured');
-  },500);
+  },
+  function(err) {
+    CourseActions.loadCoursesError(err);
+  });
 };
 
 module.exports = CourseActions;

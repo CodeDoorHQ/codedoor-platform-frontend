@@ -10,6 +10,7 @@ var Header = React.createClass({
 
         <nav className="clearfix">
           <div className="nav-item"><Link to="courses">Courses</Link></div>
+          <div className="nav-item"><Link to="tutors">Tutors</Link></div>
           <div className="nav-item"><Link to="about">About</Link></div>
         </nav>
       </header>

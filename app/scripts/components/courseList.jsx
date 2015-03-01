@@ -1,6 +1,7 @@
 import React from 'react';
 import CourseStore from '../stores/courseStore';
 import CourseActions from '../actions/courseActions';
+import Course from './course.jsx';
 
 var CourseList = React.createClass({
 
@@ -26,14 +27,14 @@ var CourseList = React.createClass({
   },
 
   render() {
-    var courses = this.state.courses.map((item, itemIndex) => <li key={ item }>{ item }</li>),
+    var courses = this.state.courses.map((course, courseIndex) => <Course course={ course } />),
       loading = this.state.loading ? <div>Loading...</div> : '';
 
     return (
       <div>
         { loading }
         <ul>
-          {courses}
+          { courses }
         </ul>
       </div>
     );

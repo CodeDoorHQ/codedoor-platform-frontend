@@ -42,7 +42,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('styles',function(cb) {
-  return gulp.src(app + 'styles/main.scss')
+  return gulp.src(app + 'styles/**/*.{sass,scss,css}')
     .pipe($.sass())
     .pipe($.autoprefixer({browsers: autoprefixerBrowsers}))
     .pipe(gulp.dest(dist + 'css/'))
@@ -68,12 +68,20 @@ gulp.task('images', function(cb) {
     .pipe(gulp.dest(dist + 'images/'));
 });
 
+// copy images
+gulp.task('fonts', function(cb) {
+  return gulp.src(app + 'fonts/**/*.{woff2,eot,woff,svg,ttf}')
+    .pipe($.size({ title : 'fonts' }))
+    .pipe(gulp.dest(dist + 'fonts/'));
+});
+
 // watch styl, html and js file changes
 gulp.task('watch', function() {
-  gulp.watch(app + 'styles/**/*.scss', ['styles']);
+  gulp.watch(app + 'styles/**/*.{sass,scss,css}', ['styles']);
   gulp.watch(app + 'index.html', ['html']);
   gulp.watch(app + 'scripts/**/*.js', ['scripts']);
   gulp.watch(app + 'scripts/**/*.jsx', ['scripts']);
+  gulp.watch(app + 'fonts/**/*.{woff2,eot,woff,svg,ttf}', ['fonts']);
 });
 
 // remove bundels
@@ -87,5 +95,5 @@ gulp.task('default', ['build', 'serve', 'watch']);
 
 // waits until clean is finished then builds the project
 gulp.task('build', ['clean'], function(){
-  gulp.start(['images', 'html','scripts','styles']);
+  gulp.start(['images', 'html','scripts','styles', 'fonts']);
 });

@@ -1,8 +1,15 @@
-@import 'normalize';
+
+// Nprmalize and reset already provided by bootstrap
+// @import 'normalize';
 // @import 'reset';
+@import './bootstrap.min.css';
+@import './font-awesome.css';
 @import 'variables';
 
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 html,
 button,
 input,
@@ -25,6 +32,8 @@ body {
   font-size: 1.4em;
   font-family: Roboto;
   line-height: 1.3;
+  /* Margin bottom by footer height */
+  margin-bottom: 150px;
 }
 
 header {
@@ -48,4 +57,46 @@ header {
 
 .content {
   padding: 1em;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 150px;
+  a,
+  a:visited {
+    color: #A1A1A1;
+    text-decoration: none;
+  }
+  a:hover {
+    color: lighten(#A1A1A1,10%);
+  }
+
+}
+.footer-top {
+  background: $footer-top;
+  h4 {
+    text-shadow: 0 0 1px rgba(0,0,0,0.01);
+    color: #fff;
+    margin: 10px 10px 0px 0px;
+  }
+  ul {
+    padding: 5px;
+  }
+  li {
+    list-style: none;
+  }
+}
+
+.footer-bottom {
+  color: #b1b1b1;
+  background: #25292C;
+  line-height: 30px;
+  padding: 15px;
+  li {
+    display: inline-block;
+    margin-left: 1em;
+  }
 }
