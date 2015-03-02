@@ -6,7 +6,7 @@ A few volunteers will help students by analyzing the progress of the student and
 
 
 
-This application is based on react starterkit, which provides a prepared development environment based on [gulp](https://github.com/gulpjs/gulp), [Sass](http://sass-lang.com/guide) and [webpack](https://github.com/webpack/webpack). The internal data flow is handled with  [Reflux](https://github.com/spoike/refluxjs) and the routing is managed with the [React-Router](https://github.com/rackt/react-router).
+This application is based on react starterkit, which provides a prepared development environment based on [gulp](https://github.com/gulpjs/gulp), [Sass](http://sass-lang.com/guide) and [webpack](https://github.com/webpack/webpack). The internal data flow is handled with  [alt](https://github.com/goatslacker/alt) and the routing is managed with the [React-Router](https://github.com/rackt/react-router).
 
 ## Requirements
 
@@ -44,9 +44,9 @@ $ gulp build --type production
 
 Javascript entry file: `app/scripts/main.js` <br />
 
-**Reflux**
+**Alt**
 
-We are using Reflux, which is an implementation of the [Flux Architecture](http://facebook.github.io/flux/docs/overview.html). If you want to read more about Reflux, check out the readme of the [reflux git repo](https://github.com/spoike/refluxjs).
+We are using alt, which is an implementation of the [Flux Architecture](http://facebook.github.io/flux/docs/overview.html). If you want to read more about alt, check out the readme of the [alt git repo](https://github.com/goatslacker/alt).
 
 **React-Router**
 
