@@ -12,8 +12,8 @@ class CourseActions {
     $.get('https://codedoor-backend.herokuapp.com/courses').then((courses) => {
       this.actions.loadCoursesSuccess(courses);
     },
-    function(err) {
-      CourseActions.loadCoursesError(err);
+    (err) => {
+      this.actions.loadCoursesError(err);
     });
   }
 }
