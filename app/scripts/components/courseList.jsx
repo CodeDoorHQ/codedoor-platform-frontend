@@ -6,20 +6,16 @@ import Course from './course.jsx';
 var CourseList = React.createClass({
 
   getInitialState() {
-    return {
-      courses : [],
-      loading : false,
-      error : false
-    }
+    return CourseStore.getState();
   },
 
   componentDidMount() {
-    this.unsubscribe = CourseStore.listen(this.onStatusChange);
+    CourseStore.listen(this.onStatusChange);
     CourseActions.loadCourses();
   },
 
   componentWillUnmount() {
-    this.unsubscribe();
+    CourseStore.unlisten(this.onStatusChange);
   },
 
   onStatusChange(state) {

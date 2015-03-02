@@ -1,18 +1,21 @@
-import Reflux from 'reflux';
+import alt from '../alt';
 
-var CourseActions = Reflux.createActions([
-  'loadCourses',
-  'loadCoursesSuccess',
-  'loadCoursesError'
-]);
+class CourseActions {
+  constructor() {
+    this.generateActions(
+      'loadCoursesSuccess',
+      'loadCoursesError'
+    );
+  }
 
-CourseActions.loadCourses.preEmit = function(data) {
-  $.get('https://codedoor-backend.herokuapp.com/courses').then(function(courses) {
-    CourseActions.loadCoursesSuccess(courses);
-  },
-  function(err) {
-    CourseActions.loadCoursesError(err);
-  });
-};
+  loadCourses(data) {
+    $.get('https://codedoor-backend.herokuapp.com/courses').then((courses) => {
+      this.actions.loadCoursesSuccess(courses);
+    },
+    function(err) {
+      CourseActions.loadCoursesError(err);
+    });
+  }
+}
 
-module.exports = CourseActions;
+export default alt.createActions(CourseActions);

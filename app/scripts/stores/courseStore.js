@@ -1,38 +1,34 @@
-import Reflux from 'reflux';
+import alt from '../alt';
 import CourseActions from '../actions/courseActions';
 
-var CourseStore = Reflux.createStore({
+class CourseStore {
 
-  init() {
+  constructor() {
     this.courses = [];
+    this.loading = false;
+    this.error = null;
 
-    this.listenTo(CourseActions.loadCourses, this.loadCourses);
-    this.listenTo(CourseActions.loadCoursesSuccess, this.loadCoursesSuccess);
-    this.listenTo(CourseActions.loadCoursesError, this.loadCoursesError);
-  },
-
-  loadCourses() {
-    this.trigger({
-      loading: true
-    });
-  },
-
-  loadCoursesSuccess(courses) {
-    this.courses = courses;
-
-    this.trigger({
-      courses : this.courses,
-      loading: false
-    });
-  },
-
-  loadCoursesError(error) {
-    this.trigger({
-      error : error,
-      loading: false
+    this.bindListeners({
+      loadCourses: CourseActions.loadCourses,
+      loadCoursesSuccess: CourseActions.loadCoursesSuccess,
+      loadCoursesError: CourseActions.loadCoursesError
     });
   }
 
-});
+  loadCourses() {
+    loading: true
+  }
 
-module.exports = CourseStore;
+  loadCoursesSuccess(courses) {
+    this.courses = courses;
+    this.loading = false
+  }
+
+  loadCoursesError(error) {
+    this.error = error;
+    this.loading = false;
+  }
+
+}
+
+export default alt.createStore(CourseStore, 'CourseStore');
